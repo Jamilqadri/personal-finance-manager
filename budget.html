@@ -1,0 +1,140 @@
+budget.html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planning - Finance Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Finance Manager</h1>
+            <nav>
+                <a href="index.html">Dashboard</a>
+                <a href="income.html">Income</a>
+                <a href="expenses.html">Expenses</a>
+                <a href="budget.html" class="active">Budget</a>
+                <a href="reports.html">Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h2>Budget Planning</h2>
+                <p>Set and track your monthly budget goals</p>
+            </div>
+
+            <!-- Monthly Budget Overview -->
+            <div class="budget-overview">
+                <div class="budget-card">
+                    <h3>Monthly Budget</h3>
+                    <div class="budget-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="budgetProgress"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="budgetSpent">$0</span> of <span id="budgetTotal">$0</span>
+                        </div>
+                    </div>
+                    <div class="budget-remaining">
+                        Remaining: <span id="budgetRemaining">$0</span>
+                    </div>
+                </div>
+
+                <div class="budget-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Income</span>
+                        <span class="stat-value income" id="totalIncome">$0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Expenses</span>
+                        <span class="stat-value expense" id="totalExpenses">$0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Savings</span>
+                        <span class="stat-value savings" id="totalSavings">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <!-- Set Budget Form -->
+                <div class="form-section">
+                    <h3>Set Monthly Budget</h3>
+                    <form id="budgetForm">
+                        <div class="form-group">
+                            <label for="budgetMonth">Month</label>
+                            <input type="month" id="budgetMonth" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budgetAmount">Budget Amount ($)</label>
+                            <input type="number" id="budgetAmount" step="0.01" min="0" required>
+                        </div>
+
+                        <button type="submit" class="btn">Set Budget</button>
+                    </form>
+
+                    <!-- Category Budgets -->
+                    <div class="category-budgets">
+                        <h4>Category-wise Budgets</h4>
+                        <form id="categoryBudgetForm">
+                            <div class="form-group">
+                                <label for="categorySelect">Category</label>
+                                <select id="categorySelect">
+                                    <option value="housing">🏠 Housing</option>
+                                    <option value="food">🍔 Food & Groceries</option>
+                                    <option value="transport">🚗 Transportation</option>
+                                    <option value="utilities">💡 Utilities</option>
+                                    <option value="healthcare">🏥 Healthcare</option>
+                                    <option value="entertainment">🎬 Entertainment</option>
+                                    <option value="shopping">🛍️ Shopping</option>
+                                    <option value="other">📦 Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryBudgetAmount">Budget Amount ($)</label>
+                                <input type="number" id="categoryBudgetAmount" step="0.01" min="0">
+                            </div>
+                            <button type="submit" class="btn-small">Add Category Budget</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Budget Details -->
+                <div class="list-section">
+                    <h3>Budget Details</h3>
+                    
+                    <!-- Current Month Budget -->
+                    <div class="current-budget">
+                        <h4>Current Month</h4>
+                        <div id="currentBudgetInfo">
+                            <!-- Current budget info will be displayed here -->
+                        </div>
+                    </div>
+
+                    <!-- Category Budgets List -->
+                    <div class="category-budget-list">
+                        <h4>Category Budgets</h4>
+                        <div id="categoryBudgets">
+                            <!-- Category budgets will be displayed here -->
+                        </div>
+                    </div>
+
+                    <!-- Budget History -->
+                    <div class="budget-history">
+                        <h4>Budget History</h4>
+                        <div id="budgetHistory">
+                            <!-- Budget history will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="budget.js"></script>
+</body>
+</html>
