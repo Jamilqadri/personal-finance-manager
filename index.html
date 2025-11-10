@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Finance Manager</h1>
+            <nav>
+                <a href="index.html" class="active">Dashboard</a>
+                <a href="income.html">Income</a>
+                <a href="expenses.html">Expenses</a>
+                <a href="budget.html">Budget</a>
+                <a href="reports.html">Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Balance</h3>
+                    <p class="amount">$0.00</p>
+                </div>
+                <div class="card">
+                    <h3>Monthly Income</h3>
+                    <p class="amount income">$0.00</p>
+                </div>
+                <div class="card">
+                    <h3>Monthly Expenses</h3>
+                    <p class="amount expense">$0.00</p>
+                </div>
+                <div class="card">
+                    <h3>Monthly Savings</h3>
+                    <p class="amount savings">$0.00</p>
+                </div>
+            </div>
+
+            <div class="recent-transactions">
+                <h2>Recent Transactions</h2>
+                <div id="transaction-list">
+                    <p>No transactions yet</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
