@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - Finance Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Finance Manager</h1>
+            <nav>
+                <a href="index.html">Dashboard</a>
+                <a href="income.html">Income</a>
+                <a href="expenses.html">Expenses</a>
+                <a href="budget.html">Budget</a>
+                <a href="reports.html" class="active">Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h2>Reports & Analytics</h2>
+                <p>Detailed insights into your financial performance</p>
+            </div>
+
+            <!-- Report Filters -->
+            <div class="report-filters">
+                <div class="filter-group">
+                    <label for="reportPeriod">Period:</label>
+                    <select id="reportPeriod">
+                        <option value="current_month">Current Month</option>
+                        <option value="last_month">Last Month</option>
+                        <option value="last_3_months">Last 3 Months</option>
+                        <option value="last_6_months">Last 6 Months</option>
+                        <option value="current_year">Current Year</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                </div>
+                <div class="filter-group custom-range" id="customRange" style="display: none;">
+                    <label for="startDate">From:</label>
+                    <input type="month" id="startDate">
+                    <label for="endDate">To:</label>
+                    <input type="month" id="endDate">
+                </div>
+                <button id="generateReport" class="btn">Generate Report</button>
+                <button id="exportReport" class="btn-secondary">Export PDF</button>
+            </div>
+
+            <!-- Financial Summary -->
+            <div class="report-section">
+                <h3>Financial Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>Total Income</h4>
+                        <p class="summary-amount income" id="totalIncomeReport">$0.00</p>
+                        <span class="summary-trend" id="incomeTrend">+0%</span>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total Expenses</h4>
+                        <p class="summary-amount expense" id="totalExpensesReport">$0.00</p>
+                        <span class="summary-trend" id="expensesTrend">+0%</span>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Net Savings</h4>
+                        <p class="summary-amount savings" id="netSavingsReport">$0.00</p>
+                        <span class="summary-trend" id="savingsTrend">+0%</span>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Savings Rate</h4>
+                        <p class="summary-amount" id="savingsRate">0%</p>
+                        <span class="summary-trend" id="savingsRateTrend">+0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <!-- Expense Distribution Chart -->
+                <div class="chart-section">
+                    <h3>Expense Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Income vs Expenses Trend -->
+                <div class="chart-section">
+                    <h3>Income vs Expenses</h3>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailed-reports">
+                <!-- Monthly Comparison -->
+                <div class="report-section">
+                    <h3>Monthly Comparison</h3>
+                    <div class="table-container">
+                        <table id="monthlyComparison">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Income</th>
+                                    <th>Expenses</th>
+                                    <th>Savings</th>
+                                    <th>Savings Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Category-wise Breakdown -->
+                <div class="report-section">
+                    <h3>Category-wise Breakdown</h3>
+                    <div class="table-container">
+                        <table id="categoryBreakdown">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Percentage</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insights -->
+            <div class="insights-section">
+                <h3>Financial Insights</h3>
+                <div id="financialInsights">
+                    <!-- Insights will be generated here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>
