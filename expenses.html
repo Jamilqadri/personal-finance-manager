@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Management - Finance Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Finance Manager</h1>
+            <nav>
+                <a href="index.html">Dashboard</a>
+                <a href="income.html">Income</a>
+                <a href="expenses.html" class="active">Expenses</a>
+                <a href="budget.html">Budget</a>
+                <a href="reports.html">Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h2>Expenses Management</h2>
+                <p>Track and manage your daily expenses</p>
+            </div>
+
+            <div class="content-grid">
+                <!-- Add Expense Form -->
+                <div class="form-section">
+                    <h3>Add New Expense</h3>
+                    <form id="expenseForm">
+                        <div class="form-group">
+                            <label for="expenseAmount">Amount ($)</label>
+                            <input type="number" id="expenseAmount" step="0.01" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseDescription">Description</label>
+                            <input type="text" id="expenseDescription" placeholder="Groceries, Rent, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseCategory">Category</label>
+                            <select id="expenseCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="housing">Housing</option>
+                                <option value="food">Food & Groceries</option>
+                                <option value="transport">Transportation</option>
+                                <option value="utilities">Utilities</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseDate">Date</label>
+                            <input type="date" id="expenseDate" required>
+                        </div>
+
+                        <button type="submit" class="btn">Add Expense</button>
+                    </form>
+
+                    <!-- Quick Expense Summary -->
+                    <div class="quick-summary">
+                        <h4>Today's Expenses</h4>
+                        <p id="todayExpenses">$0.00</p>
+                    </div>
+                </div>
+
+                <!-- Expenses List -->
+                <div class="list-section">
+                    <h3>Expenses History</h3>
+                    <div class="filters">
+                        <select id="filterCategory">
+                            <option value="">All Categories</option>
+                            <option value="housing">Housing</option>
+                            <option value="food">Food & Groceries</option>
+                            <option value="transport">Transportation</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="month" id="filterMonth">
+                        <button id="resetFilters" class="btn-small">Reset</button>
+                    </div>
+                    
+                    <div id="expensesList" class="transaction-list">
+                        <!-- Expense items will be displayed here -->
+                    </div>
+
+                    <!-- Category Summary -->
+                    <div class="category-summary">
+                        <h4>Spending by Category</h4>
+                        <div id="categoryChart">
+                            <!-- Category bars will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="expenses.js"></script>
+</body>
+</html>
