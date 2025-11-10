@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Management - Finance Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Finance Manager</h1>
+            <nav>
+                <a href="index.html">Dashboard</a>
+                <a href="income.html" class="active">Income</a>
+                <a href="expenses.html">Expenses</a>
+                <a href="budget.html">Budget</a>
+                <a href="reports.html">Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h2>Income Management</h2>
+                <p>Add and manage your income sources</p>
+            </div>
+
+            <div class="content-grid">
+                <!-- Add Income Form -->
+                <div class="form-section">
+                    <h3>Add New Income</h3>
+                    <form id="incomeForm">
+                        <div class="form-group">
+                            <label for="incomeAmount">Amount ($)</label>
+                            <input type="number" id="incomeAmount" step="0.01" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incomeDescription">Description</label>
+                            <input type="text" id="incomeDescription" placeholder="Salary, Freelance, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incomeCategory">Category</label>
+                            <select id="incomeCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="salary">Salary</option>
+                                <option value="freelance">Freelance</option>
+                                <option value="business">Business</option>
+                                <option value="investment">Investment</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incomeDate">Date</label>
+                            <input type="date" id="incomeDate" required>
+                        </div>
+
+                        <button type="submit" class="btn">Add Income</button>
+                    </form>
+                </div>
+
+                <!-- Income List -->
+                <div class="list-section">
+                    <h3>Income History</h3>
+                    <div class="filters">
+                        <select id="filterCategory">
+                            <option value="">All Categories</option>
+                            <option value="salary">Salary</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="business">Business</option>
+                            <option value="investment">Investment</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="month" id="filterMonth">
+                    </div>
+                    
+                    <div id="incomeList" class="transaction-list">
+                        <!-- Income items will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="income.js"></script>
+</body>
+</html>
