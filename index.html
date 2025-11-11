@@ -5,49 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Finance Manager</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💰 Finance Manager</h1>
-            <nav>
-                <a href="index.html" class="active">Dashboard</a>
-                <a href="income.html">Income</a>
-                <a href="expenses.html">Expenses</a>
-                <a href="budget.html">Budget</a>
-                <a href="reports.html">Reports</a>
-            </nav>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="fas fa-wallet"></i>
+                    <h1>Finance Manager</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="action-btn primary" id="createFileBtn">
+                        <i class="fas fa-file-circle-plus"></i>
+                        New File
+                    </button>
+                    <button class="action-btn secondary" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </button>
+                </div>
+            </div>
         </header>
 
-        <main>
-            <div class="summary-cards">
-                <div class="card">
-                    <h3>Total Balance</h3>
-                    <p class="amount">$0.00</p>
+        <!-- Dashboard Content -->
+        <main class="dashboard-main">
+            <!-- Financial Overview -->
+            <section class="financial-overview">
+                <div class="overview-cards">
+                    <div class="overview-card balance">
+                        <div class="card-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Balance</h3>
+                            <div class="amount" id="totalBalance">₹0.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card income">
+                        <div class="card-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Income</h3>
+                            <div class="amount" id="totalIncome">₹0.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card expense">
+                        <div class="card-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Expense</h3>
+                            <div class="amount" id="totalExpense">₹0.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card savings">
+                        <div class="card-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Savings</h3>
+                            <div class="amount" id="totalSavings">₹0.00</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Monthly Income</h3>
-                    <p class="amount income">$0.00</p>
-                </div>
-                <div class="card">
-                    <h3>Monthly Expenses</h3>
-                    <p class="amount expense">$0.00</p>
-                </div>
-                <div class="card">
-                    <h3>Monthly Savings</h3>
-                    <p class="amount savings">$0.00</p>
-                </div>
-            </div>
+            </section>
 
-            <div class="recent-transactions">
-                <h2>Recent Transactions</h2>
-                <div id="transaction-list">
-                    <p>No transactions yet</p>
+            <!-- Date Filters -->
+            <section class="filter-section">
+                <div class="filter-container">
+                    <label for="dateRange">View Data For:</label>
+                    <select id="dateRange" class="filter-select">
+                        <option value="all">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="year">This Year</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                    
+                    <div class="custom-range" id="customRange" style="display: none;">
+                        <input type="date" id="startDate" class="date-input">
+                        <span>to</span>
+                        <input type="date" id="endDate" class="date-input">
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Files List -->
+            <section class="files-section">
+                <div class="section-header">
+                    <h2>My Files</h2>
+                </div>
+                <div class="files-grid" id="filesGrid">
+                    <!-- Files will be dynamically loaded here -->
+                    <div class="empty-state">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>No Files Yet</h3>
+                        <p>Create your first file to start managing finances</p>
+                        <button class="create-first-file" id="createFirstFile">
+                            Create First File
+                        </button>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
+    <!-- Modals will be added by JavaScript -->
+    <div id="modalsContainer"></div>
+
     <script src="script.js"></script>
+    <script src="file-manager.js"></script>
+    <script src="transaction-manager.js"></script>
+    <script src="settings-manager.js"></script>
 </body>
 </html>
